@@ -1,15 +1,7 @@
-import dash
 from dash import Input, Output, State, html, dcc, dash_table, MATCH, ALL, ctx
 import dash_mantine_components as dmc
-from dash_iconify import DashIconify
-import pandas as pd
 import plotly.graph_objects as go
-from datetime import datetime, time, timedelta
-import time as time_pck
-import os
-import dash_daq as daq
 import pickle
-import random
 
 from app import app
 
@@ -36,7 +28,6 @@ layout = html.Div(
                 dmc.Stack(
                     align = 'center',
                     children = [
-                        # dmc.Title('Churn Scenario Probability', order= 3),
                         dmc.Title('Configure una vivienda', order = 4, style = {'text-align':'center'}),
                         dmc.Button( id = 'randomize', children = 'Vivienda aleatoria', size = 'sm'),
                         dmc.SimpleGrid(

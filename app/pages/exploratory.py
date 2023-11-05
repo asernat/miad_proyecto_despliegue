@@ -1,9 +1,9 @@
-import dash
-from dash import html, dcc
+from dash import Input, Output, html, dcc
 import dash_mantine_components as dmc
 import pickle
 from app import app
 import plotly.graph_objects as go
+import plotly.express as px
 
 def create_dropdown(id,label, options_list):
     return dmc.Select(
@@ -74,15 +74,16 @@ layout = html.Div(
             ]
         ),
         dmc.Space(h=30),
-        dmc.Divider(label = 'Exploratorio', labelPosition='center', size='xl', style={'width':'90%', 'align':'center'}),
+        dmc.Divider(label = 'Exploratorio', labelPosition='center', size='xl', style={'width':'100%', 'align':'center'}),
         dmc.Paper(
             radius="md", # or p=10 for border-radius of 10px
             withBorder=True,
             shadow='xs',
             p='sm',
-            style={'height':'100%', 'width':'90%', 'align':'center'},
+            style={'height':'100%', 'width':'100%', 'align':'center'},
             children=[
                 dmc.SimpleGrid(
+                    style={'width':'100%', 'align':'center'},
                     cols = 2,
                     children = [
                         dcc.Loading(id = "loading-icon", children=[dcc.Graph(id='graph-1', figure=go.Figure(layout={'height': 10}))], type="default"),
@@ -93,3 +94,58 @@ layout = html.Div(
         ),                    
     ]
 )
+
+@app.callback([
+    Output('total_inmuebles','children'),
+    Output('graph-1','figure'),
+    Output('graph-2','figure'),
+    ],[
+    Input('select-departamento', 'value'),
+    Input('select-ciudad', 'value'),
+    Input('select-estrato', 'value'),
+    Input('select-tipo_inmueble', 'value'),
+    Input('slider-area_valorada', 'value'),
+    Input('select-garajes', 'value'),
+    ])
+def update_dashbord(departamento, ciudad, estrato, tipo_inmueble, area_valorada, garajes):
+    df_f = datos.copy()
+
+    if departamento != "Ninguno":
+        df_f = df_f.query(f"departamento_inmueble == '{departamento}'")
+
+    if ciudad != "Ninguno":
+        df_f = df_f.query(f"municipio_inmueble == '{ciudad}'")
+
+    if estrato != "Ninguno":
+        df_f = df_f.query(f"estrato == {estrato}")
+
+    if tipo_inmueble != "Ninguno":
+        df_f = df_f.query(f"tipo_inmueble == '{tipo_inmueble}'")
+
+    if garajes != "Ninguno":
+        df_f = df_f.query(f"numero_total_de_garajes == {garajes}")
+
+    if area_valorada[1] == 500:
+        df_f = df_f.query(f"area_valorada >= {area_valorada[0]}")
+    else:
+        df_f = df_f.query(f"area_valorada >= {area_valorada[0]} and area_valorada <= {area_valorada[1]}")
+
+    fig1 = px.histogram(df_f, x="vigilancia_privada", color="vigilancia_privada", width=500, height=400, text_auto=True)
+    fig1.update_layout(title_text="Vigilancia Privada", title_x=0.5)
+
+    fig2 = px.histogram(df_f, x="calidad_acabados_cocina", color="calidad_acabados_cocina", width=500, height=400, text_auto=True)
+    fig2.update_layout(title_text="Calidad acabados cocina", title_x=0.5)
+
+    return df_f.shape[0], fig1, fig2
+
+@app.callback([Output('select-ciudad', 'value'),Output('select-ciudad', 'data')],[Input('select-departamento', 'value')])
+def update_output_div(input_value):
+    
+    if input_value == 'Ninguno':
+        ciudades = ['Ninguno'] + sorted(list(set(datos['municipio_inmueble'])))
+        return "Ninguno", ciudades
+    else:
+        f_datos = datos.query(f"departamento_inmueble == '{input_value}'")
+        ciudades = ['Ninguno'] + sorted(list(set(f_datos['municipio_inmueble'])))
+        return "Ninguno", ciudades
+    

@@ -1,4 +1,0 @@
-dash
-dash-mantine-components
-dash-iconify
-dash-extensions
