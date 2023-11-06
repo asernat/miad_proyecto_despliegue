@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/Usuario/Documents/GitHub/miad_proyecto_despliegue/mlruns/768939075588501415/0928e78cc3cb42bd94f15432098ab16f/artifacts
+end_time: 1699314110664
+entry_point_name: ''
+experiment_id: '768939075588501415'
+lifecycle_stage: active
+run_id: 0928e78cc3cb42bd94f15432098ab16f
+run_name: Random Forest Regressor
+run_uuid: 0928e78cc3cb42bd94f15432098ab16f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1699314107339
+status: 3
+tags: []
+user_id: Usuario

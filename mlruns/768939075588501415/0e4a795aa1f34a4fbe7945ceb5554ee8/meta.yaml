@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/Usuario/Documents/GitHub/miad_proyecto_despliegue/mlruns/768939075588501415/0e4a795aa1f34a4fbe7945ceb5554ee8/artifacts
+end_time: 1699314126584
+entry_point_name: ''
+experiment_id: '768939075588501415'
+lifecycle_stage: active
+run_id: 0e4a795aa1f34a4fbe7945ceb5554ee8
+run_name: Huber Regressor
+run_uuid: 0e4a795aa1f34a4fbe7945ceb5554ee8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1699314126345
+status: 3
+tags: []
+user_id: Usuario

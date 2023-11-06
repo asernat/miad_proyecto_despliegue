@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/Usuario/Documents/GitHub/miad_proyecto_despliegue/mlruns/768939075588501415/1cf077b6c2bf4481b912ef8ed38e9025/artifacts
+end_time: 1699314127362
+entry_point_name: ''
+experiment_id: '768939075588501415'
+lifecycle_stage: active
+run_id: 1cf077b6c2bf4481b912ef8ed38e9025
+run_name: Orthogonal Matching Pursuit
+run_uuid: 1cf077b6c2bf4481b912ef8ed38e9025
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1699314127102
+status: 3
+tags: []
+user_id: Usuario

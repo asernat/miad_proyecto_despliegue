@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/Usuario/Documents/GitHub/miad_proyecto_despliegue/mlruns/768939075588501415/508cf428048e40e49b6d1f193358b26c/artifacts
+end_time: 1699314126158
+entry_point_name: ''
+experiment_id: '768939075588501415'
+lifecycle_stage: active
+run_id: 508cf428048e40e49b6d1f193358b26c
+run_name: Decision Tree Regressor
+run_uuid: 508cf428048e40e49b6d1f193358b26c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1699314125887
+status: 3
+tags: []
+user_id: Usuario
