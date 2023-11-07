@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Usuario/miad_proyecto_despliegue/mlruns/144999119087787746/7ffc8dc5d9bf46bf8eb344cc5eb9c25f/artifacts
+end_time: 1699323195566
+entry_point_name: ''
+experiment_id: '144999119087787746'
+lifecycle_stage: active
+run_id: 7ffc8dc5d9bf46bf8eb344cc5eb9c25f
+run_name: Least Angle Regression
+run_uuid: 7ffc8dc5d9bf46bf8eb344cc5eb9c25f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1699323195258
+status: 3
+tags: []
+user_id: Usuario

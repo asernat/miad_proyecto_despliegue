@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Usuario/miad_proyecto_despliegue/mlruns/144999119087787746/7850ed53dd4b4853a2ae2868e717040c/artifacts
+end_time: 1699323194732
+entry_point_name: ''
+experiment_id: '144999119087787746'
+lifecycle_stage: active
+run_id: 7850ed53dd4b4853a2ae2868e717040c
+run_name: Dummy Regressor
+run_uuid: 7850ed53dd4b4853a2ae2868e717040c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1699323194427
+status: 3
+tags: []
+user_id: Usuario

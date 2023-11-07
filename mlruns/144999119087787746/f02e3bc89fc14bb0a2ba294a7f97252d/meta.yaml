@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Usuario/miad_proyecto_despliegue/mlruns/144999119087787746/f02e3bc89fc14bb0a2ba294a7f97252d/artifacts
+end_time: 1699318596168
+entry_point_name: ''
+experiment_id: '144999119087787746'
+lifecycle_stage: active
+run_id: f02e3bc89fc14bb0a2ba294a7f97252d
+run_name: Ridge Regression
+run_uuid: f02e3bc89fc14bb0a2ba294a7f97252d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1699318595227
+status: 3
+tags: []
+user_id: Usuario
