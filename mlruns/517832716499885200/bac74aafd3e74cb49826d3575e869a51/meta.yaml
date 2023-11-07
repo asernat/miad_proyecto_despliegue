@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/Usuario/Documents/GitHub/miad_proyecto_despliegue/mlruns/517832716499885200/bac74aafd3e74cb49826d3575e869a51/artifacts
+end_time: 1699316574425
+entry_point_name: ''
+experiment_id: '517832716499885200'
+lifecycle_stage: active
+run_id: bac74aafd3e74cb49826d3575e869a51
+run_name: Extreme Gradient Boosting
+run_uuid: bac74aafd3e74cb49826d3575e869a51
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1699316571516
+status: 3
+tags: []
+user_id: Usuario
