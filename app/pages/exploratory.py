@@ -139,7 +139,7 @@ def update_dashbord(departamento, ciudad, estrato, tipo_inmueble, area_valorada,
     fig2.update_layout(title_text="Calidad acabados cocina", title_x=0.5)
 
     fig3 = px.histogram(df_f, x="clase_inmueble", color="clase_inmueble", width=500, height=400)
-    fig3.update_layout(title_text="clase_inmueble", title_x=0.5)
+    fig3.update_layout(title_text="clase inmueble", title_x=0.5)
 
     return df_f.shape[0], fig1, fig2, fig3
 
