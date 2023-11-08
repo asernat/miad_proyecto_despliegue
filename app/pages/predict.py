@@ -48,7 +48,26 @@ layout = html.Div(
                                         ),
                                     ]
                                 ),
-                                create_dropdown('selectp-garajes','Garajes', sorted(list(set(datos['numero_total_de_garajes'])))),
+                                #create_dropdown('selectp-garajes','Garajes', sorted(list(set(datos['numero_total_de_garajes'])))),
+                                create_dropdown('selectp-sismoresistentes','Sismo Resistentes', sorted(list(set(datos['ajustes_sismoresistentes'])))),
+                                create_dropdown('selectp-numero_piso','Número de Piso', sorted(list(set(datos['numero_piso'])))),
+                                 html.Div(
+                                    children = [
+                                        html.Label('Antigüedad', style={'font-size': 14, 'font-weight': '500'}),
+                                        dmc.Slider(
+                                            id='sliderp-vetustez',
+                                            max = 20,
+                                            value=0,
+                                            mb=35,
+                                        ),
+                                    ]
+                                ),
+                                create_dropdown('selectp-administracion','Administración', sorted(list(set(datos['administracion'])))),
+                                create_dropdown('selectp-habitaciones','Habitaciones', sorted(list(set(datos['habitaciones'])))),
+                                create_dropdown('selectp-bano_privado','Número de Baños', sorted(list(set(datos['bano_privado'])))),
+
+
+                                
                             ]
                         ),
                         dmc.Button(id = 'submit-customer', children = 'Enviar'),

@@ -89,6 +89,7 @@ layout = html.Div(
                         dcc.Loading(id = "loading-icon", children=[dcc.Graph(id='graph-1', figure=go.Figure(layout={'height': 10}))], type="default"),
                         dcc.Loading(id = "loading-icon", children=[dcc.Graph(id='graph-2', figure=go.Figure(layout={'height': 10}))], type="default"),
                         dcc.Loading(id = "loading-icon", children=[dcc.Graph(id='graph-3', figure=go.Figure(layout={'height': 10}))], type="default"),
+                        dcc.Loading(id = "loading-icon", children=[dcc.Graph(id='graph-4', figure=go.Figure(layout={'height': 10}))], type="default"),                        
                     ]
                 )
             ],            
@@ -101,6 +102,7 @@ layout = html.Div(
     Output('graph-1','figure'),
     Output('graph-2','figure'),
     Output('graph-3','figure'),
+    Output('graph-4','figure'),
     ],[
     Input('select-departamento', 'value'),
     Input('select-ciudad', 'value'),
@@ -141,7 +143,10 @@ def update_dashbord(departamento, ciudad, estrato, tipo_inmueble, area_valorada,
     fig3 = px.histogram(df_f, x="clase_inmueble", color="clase_inmueble", width=500, height=400)
     fig3.update_layout(title_text="clase inmueble", title_x=0.5)
 
-    return df_f.shape[0], fig1, fig2, fig3
+    fig4 = px.pie(df_f, names='administracion', title='Administración',width=500, height=400)
+    fig4.update_layout(title_text="Administración", title_x=0.5)
+
+    return df_f.shape[0], fig1, fig2, fig3,fig4
 
 @app.callback([Output('select-ciudad', 'value'),Output('select-ciudad', 'data')],[Input('select-departamento', 'value')])
 def update_output_div(input_value):
