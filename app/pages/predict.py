@@ -74,6 +74,7 @@ layout = html.Div(
                                 create_dropdown('selectp-administracion','Administración', sorted(list(set(datos['administracion'])))),
                                 create_dropdown('selectp-habitaciones','Habitaciones', sorted(list(set(datos['habitaciones'])))),
                                 create_dropdown('selectp-bano_privado','Número de Baños', sorted(list(set(datos['bano_privado'])))),
+                                create_dropdown('selectp-barrio','Barrio', sorted(list(set(datos['barrio'])))),
 
 
                                 
@@ -115,8 +116,11 @@ layout = html.Div(
                 Output('selectp-administracion','value'),
                 Output('selectp-habitaciones', 'value'),
                 Output('selectp-bano_privado', 'value'),
+                Output('selectp-barrio', 'value'),
+
                 Input('submit-inmueble', 'n_clicks'),
                 Input('randomize', 'n_clicks'),
+
                 State('pred_precio', 'children'),                
                 State('selectp-departamento', 'value'),                
                 State('selectp-ciudad', 'value'),
@@ -129,9 +133,11 @@ layout = html.Div(
                 State('selectp-administracion','value'),
                 State('selectp-habitaciones', 'value'),
                 State('selectp-bano_privado', 'value'),
+                State('selectp-barrio', 'value'),
+
                 prevent_inital_update = True,
                 )
-def update_prob(n , randomize, pred_precio, departamento, ciudad, estrato, tipo_inmueble, area_valorada, sismoresistentes, numero_piso, antiguedad, administracion, habitaciones, bano_privado):
+def update_prob(n , randomize, pred_precio, departamento, ciudad, estrato, tipo_inmueble, area_valorada, sismoresistentes, numero_piso, antiguedad, administracion, habitaciones, bano_privado,barrio):
     
     if ctx.triggered_id == 'submit-inmueble':
 
@@ -146,6 +152,7 @@ def update_prob(n , randomize, pred_precio, departamento, ciudad, estrato, tipo_
         inmueble_promedio['bano_privado'] = bano_privado
         inmueble_promedio['vetustez'] = antiguedad
         inmueble_promedio['area_valorada'] = area_valorada
+        inmueble_promedio['barrio'] = barrio
 
 
         inmueble_promedio_t = cat_econder.transform(pd.DataFrame.from_dict(inmueble_promedio, orient='index').T)
@@ -153,7 +160,7 @@ def update_prob(n , randomize, pred_precio, departamento, ciudad, estrato, tipo_
         pred_precio = model.predict(inmueble_promedio_selected)[0]
         pred_precio = "$ {:.2f}".format(pred_precio)
 
-        return pred_precio, departamento, ciudad, estrato, tipo_inmueble, area_valorada, sismoresistentes, numero_piso, antiguedad, administracion, habitaciones, bano_privado
+        return pred_precio, departamento, ciudad, estrato, tipo_inmueble, area_valorada, sismoresistentes, numero_piso, antiguedad, administracion, habitaciones, bano_privado,barrio
     
     elif ctx.triggered_id == 'randomize':
         
@@ -190,7 +197,11 @@ def update_prob(n , randomize, pred_precio, departamento, ciudad, estrato, tipo_
         area_valorada = random.choice(list(set(f_datos['area_valorada'])))
         f_datos = datos.query(f"area_valorada == {max(min(500,area_valorada),0)}")
 
-        return pred_precio, departamento, ciudad, estrato, tipo_inmueble, area_valorada, sismoresistentes, numero_piso, antiguedad, administracion, habitaciones, bano_privado
+        barrio = random.choice(list(set(f_datos['barrio'])))
+        f_datos = datos.query(f"barrio == {barrio}")
+
+
+        return pred_precio, departamento, ciudad, estrato, tipo_inmueble, area_valorada, sismoresistentes, numero_piso, antiguedad, administracion, habitaciones, bano_privado ,barrio
     else:
-        return pred_precio, departamento, ciudad, estrato, tipo_inmueble, area_valorada, sismoresistentes, numero_piso, antiguedad, administracion, habitaciones, bano_privado
+        return pred_precio, departamento, ciudad, estrato, tipo_inmueble, area_valorada, sismoresistentes, numero_piso, antiguedad, administracion, habitaciones, bano_privado ,barrio
 
