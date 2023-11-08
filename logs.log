@@ -5968,3 +5968,23 @@ Increase the number of iterations (max_iter) or scale the data as shown in:
                 ('actual_estimator',
                  RandomForestRegressor(n_jobs=-1, random_state=1974))])
 2023-11-06 21:13:22,761:INFO:save_model() successfully completed......................................
+2023-11-07 21:36:04,034:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-11-07 21:36:04,034:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-11-07 21:36:04,034:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-11-07 21:36:04,034:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-11-07 21:36:05,254:INFO:Initializing load_model()
+2023-11-07 21:36:05,254:INFO:load_model(model_name=modelos\best_model-pipeline, platform=None, authentication=None, verbose=True)
+2023-11-07 22:31:47,852:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-11-07 22:31:47,852:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-11-07 22:31:47,852:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-11-07 22:31:47,852:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-11-07 22:31:47,994:INFO:Initializing load_model()
+2023-11-07 22:31:47,994:INFO:load_model(model_name=modelos\best_model-pipeline, platform=None, authentication=None, verbose=True)
