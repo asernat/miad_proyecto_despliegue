@@ -90,6 +90,8 @@ layout = html.Div(
                         dcc.Loading(id = "loading-icon", children=[dcc.Graph(id='graph-2', figure=go.Figure(layout={'height': 10}))], type="default"),
                         dcc.Loading(id = "loading-icon", children=[dcc.Graph(id='graph-3', figure=go.Figure(layout={'height': 10}))], type="default"),
                         dcc.Loading(id = "loading-icon", children=[dcc.Graph(id='graph-4', figure=go.Figure(layout={'height': 10}))], type="default"),                        
+                        dcc.Loading(id = "loading-icon", children=[dcc.Graph(id='graph-5', figure=go.Figure(layout={'height': 10}))], type="default"),  
+                        dcc.Loading(id = "loading-icon", children=[dcc.Graph(id='graph-6', figure=go.Figure(layout={'height': 10}))], type="default"),  
                     ]
                 )
             ],            
@@ -103,6 +105,8 @@ layout = html.Div(
     Output('graph-2','figure'),
     Output('graph-3','figure'),
     Output('graph-4','figure'),
+    Output('graph-5','figure'),
+    Output('graph-6','figure'),
     ],[
     Input('select-departamento', 'value'),
     Input('select-ciudad', 'value'),
@@ -135,18 +139,38 @@ def update_dashbord(departamento, ciudad, estrato, tipo_inmueble, area_valorada,
         df_f = df_f.query(f"area_valorada >= {area_valorada[0]} and area_valorada <= {area_valorada[1]}")
 
     fig1 = px.histogram(df_f, x="vigilancia_privada", color="vigilancia_privada", width=500, height=400, text_auto=True)
-    fig1.update_layout(title_text="Vigilancia Privada", title_x=0.5)
+    fig1.update_layout(title_text="Cantidad de Inmuebles con Vigilancia Privada", title_x=0.5)
+    fig1.update_xaxes(title='Vigilancia Privada')
+    fig1.update_yaxes(title='Cantidad')
 
     fig2 = px.histogram(df_f, x="calidad_acabados_cocina", color="calidad_acabados_cocina", width=500, height=400, text_auto=True)
     fig2.update_layout(title_text="Calidad acabados cocina", title_x=0.5)
+    fig2.update_xaxes(title='Calidad Acabados Cocina')
+    fig2.update_yaxes(title='Cantidad')
 
     fig3 = px.histogram(df_f, x="clase_inmueble", color="clase_inmueble", width=500, height=400)
-    fig3.update_layout(title_text="clase inmueble", title_x=0.5)
+    fig3.update_layout(title_text="Cantidad de Inmuebles por Clase", title_x=0.5)
+    fig3.update_xaxes(title='Clase Inmueble')
+    fig3.update_yaxes(title='Cantidad')
+
 
     fig4 = px.pie(df_f, names='administracion', title='Administración',width=500, height=400)
-    fig4.update_layout(title_text="Administración", title_x=0.5)
+    fig4.update_layout(title_text="Proporción Inmubles con Administración", title_x=0.5)
 
-    return df_f.shape[0], fig1, fig2, fig3,fig4
+    ## Valor Avaluo vs Área Valorada
+    fig5 = px.scatter(df_f,  y='clean_valor_total_avaluo', x='area_valorada', color='vigilancia_privada',  width=500, height=400)
+    fig5.update_xaxes(title='Estrato')
+    fig5.update_yaxes(title='Valor Total Avalúo')
+    fig5.update_layout(title='Valor Total Avalúo vs Área Valorada', title_x=0.5)
+
+    
+    ## Precio Promedio Por Estrato
+    fig6 = px.histogram(df_f, x="estrato", y='clean_valor_total_avaluo', color="estrato", histfunc='avg', width=500, height=400, text_auto=True)
+    fig6.update_layout(title='Estrato vs Valor Medio Avalúo', title_x=0.5)
+    fig6.update_xaxes(title='Estrato')
+    fig6.update_yaxes(title='Valor Medio Avalúo')
+
+    return df_f.shape[0], fig1, fig2, fig3,fig4, fig5, fig6
 
 @app.callback([Output('select-ciudad', 'value'),Output('select-ciudad', 'data')],[Input('select-departamento', 'value')])
 def update_output_div(input_value):
@@ -159,3 +183,6 @@ def update_output_div(input_value):
         ciudades = ['Ninguno'] + sorted(list(set(f_datos['municipio_inmueble'])))
         return "Ninguno", ciudades
     
+	
+	
+	
