@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Usuario/miad_proyecto_despliegue/mlruns/144999119087787746/853b713f5682458fbbd81e654455356f/artifacts
+end_time: 1699323190035
+entry_point_name: ''
+experiment_id: '144999119087787746'
+lifecycle_stage: active
+run_id: 853b713f5682458fbbd81e654455356f
+run_name: Gradient Boosting Regressor
+run_uuid: 853b713f5682458fbbd81e654455356f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1699323188208
+status: 3
+tags: []
+user_id: Usuario

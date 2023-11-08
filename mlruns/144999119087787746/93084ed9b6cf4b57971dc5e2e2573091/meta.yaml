@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Usuario/miad_proyecto_despliegue/mlruns/144999119087787746/93084ed9b6cf4b57971dc5e2e2573091/artifacts
+end_time: 1699323182988
+entry_point_name: ''
+experiment_id: '144999119087787746'
+lifecycle_stage: active
+run_id: 93084ed9b6cf4b57971dc5e2e2573091
+run_name: Extra Trees Regressor
+run_uuid: 93084ed9b6cf4b57971dc5e2e2573091
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1699323180504
+status: 3
+tags: []
+user_id: Usuario

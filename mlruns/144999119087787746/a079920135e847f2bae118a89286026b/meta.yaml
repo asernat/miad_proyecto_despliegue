@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Usuario/miad_proyecto_despliegue/mlruns/144999119087787746/a079920135e847f2bae118a89286026b/artifacts
+end_time: 1699323194328
+entry_point_name: ''
+experiment_id: '144999119087787746'
+lifecycle_stage: active
+run_id: a079920135e847f2bae118a89286026b
+run_name: Linear Regression
+run_uuid: a079920135e847f2bae118a89286026b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1699323194047
+status: 3
+tags: []
+user_id: Usuario

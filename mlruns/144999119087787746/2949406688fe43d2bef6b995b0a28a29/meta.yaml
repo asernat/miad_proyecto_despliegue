@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Usuario/miad_proyecto_despliegue/mlruns/144999119087787746/2949406688fe43d2bef6b995b0a28a29/artifacts
+end_time: 1699318594692
+entry_point_name: ''
+experiment_id: '144999119087787746'
+lifecycle_stage: active
+run_id: 2949406688fe43d2bef6b995b0a28a29
+run_name: Lasso Regression
+run_uuid: 2949406688fe43d2bef6b995b0a28a29
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1699318594353
+status: 3
+tags: []
+user_id: Usuario

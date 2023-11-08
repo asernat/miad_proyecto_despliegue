@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Usuario/miad_proyecto_despliegue/mlruns/144999119087787746/c760ccf3955348b6aa450797164ba7e2/artifacts
+end_time: 1699323195144
+entry_point_name: ''
+experiment_id: '144999119087787746'
+lifecycle_stage: active
+run_id: c760ccf3955348b6aa450797164ba7e2
+run_name: AdaBoost Regressor
+run_uuid: c760ccf3955348b6aa450797164ba7e2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1699323194846
+status: 3
+tags: []
+user_id: Usuario

@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Usuario/miad_proyecto_despliegue/mlruns/144999119087787746/c7750cde506a49ca96d2249c13f561bc/artifacts
+end_time: 1699318588477
+entry_point_name: ''
+experiment_id: '144999119087787746'
+lifecycle_stage: active
+run_id: c7750cde506a49ca96d2249c13f561bc
+run_name: Light Gradient Boosting Machine
+run_uuid: c7750cde506a49ca96d2249c13f561bc
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1699318586177
+status: 3
+tags: []
+user_id: Usuario

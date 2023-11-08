@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Usuario/miad_proyecto_despliegue/mlruns/144999119087787746/dc63e90bdc484ec49cfd0fbef6ecc830/artifacts
+end_time: 1699318593848
+entry_point_name: ''
+experiment_id: '144999119087787746'
+lifecycle_stage: active
+run_id: dc63e90bdc484ec49cfd0fbef6ecc830
+run_name: Elastic Net
+run_uuid: dc63e90bdc484ec49cfd0fbef6ecc830
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1699318593537
+status: 3
+tags: []
+user_id: Usuario
