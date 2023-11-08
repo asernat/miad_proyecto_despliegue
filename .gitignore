@@ -1,1 +1,4 @@
 /datos
+**/__pycache__/
+*.log
+**/*.ipynb_checkpoints/
