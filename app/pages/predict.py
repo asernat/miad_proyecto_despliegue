@@ -75,6 +75,16 @@ layout = html.Div(
                                 create_dropdown('selectp-habitaciones','Habitaciones', sorted(list(set(datos['habitaciones'])))),
                                 create_dropdown('selectp-bano_privado','Número de Baños', sorted(list(set(datos['bano_privado'])))),
                                 create_dropdown('selectp-barrio','Barrio', sorted(list(set(datos['barrio'])))),
+                                create_dropdown('selectp-ocupante','Ocupantes', sorted(list(set(datos['ocupante'])))),
+                                create_dropdown('selectp-total_cupos_parquedaro','Cupos parqueadero', sorted(list(set(datos['total_cupos_parquedaro'])))),
+                                create_dropdown('selectp-cocina','Cocina', sorted(list(set(datos['cocina'])))),
+                                create_dropdown('selectp-clase_inmueble','Clase inmueble', sorted(list(set(datos['clase_inmueble'])))),
+                                create_dropdown('selectp-estructura_reforzada','Estructura reforzada', sorted(list(set(datos['estructura_reforzada'])))),
+                                create_dropdown('selectp-tipo_garaje','Tipo garaje', sorted(list(set(datos['tipo_garaje'])))),
+                                create_dropdown('selectp-detalle_material','Detalle material', sorted(list(set(datos['detalle_material'])))),
+                                create_dropdown('selectp-closet','Closet', sorted(list(set(datos['closet'])))),
+                                create_dropdown('selectp-balcon','Balcon', sorted(list(set(datos['balcon'])))),
+                                create_dropdown('selectp-calidad_acabados_madera','Calidad acabados madera', sorted(list(set(datos['calidad_acabados_madera'])))),
 
 
                                 
@@ -117,6 +127,16 @@ layout = html.Div(
                 Output('selectp-habitaciones', 'value'),
                 Output('selectp-bano_privado', 'value'),
                 Output('selectp-barrio', 'value'),
+                Output('selectp-ocupante', 'value'),
+                Output('selectp-total_cupos_parquedaro', 'value'),
+                Output('selectp-cocina', 'value'),
+                Output('selectp-clase_inmueble', 'value'),
+                Output('selectp-estructura_reforzada', 'value'),
+                Output('selectp-tipo_garaje', 'value'),
+                Output('selectp-detalle_material', 'value'),
+                Output('selectp-closet', 'value'),
+                Output('selectp-balcon', 'value'),
+                Output('selectp-calidad_acabados_madera', 'value'),
 
                 Input('submit-inmueble', 'n_clicks'),
                 Input('randomize', 'n_clicks'),
@@ -134,10 +154,20 @@ layout = html.Div(
                 State('selectp-habitaciones', 'value'),
                 State('selectp-bano_privado', 'value'),
                 State('selectp-barrio', 'value'),
+                State('selectp-ocupante', 'value'),
+                State('selectp-total_cupos_parquedaro', 'value'),
+                State('selectp-cocina', 'value'),
+                State('selectp-clase_inmueble', 'value'),
+                State('selectp-estructura_reforzada', 'value'),
+                State('selectp-tipo_garaje', 'value'),
+                State('selectp-detalle_material', 'value'),
+                State('selectp-closet', 'value'),
+                State('selectp-balcon', 'value'),
+                State('selectp-calidad_acabados_madera', 'value'),
 
                 prevent_inital_update = True,
                 )
-def update_prob(n , randomize, pred_precio, departamento, ciudad, estrato, tipo_inmueble, area_valorada, sismoresistentes, numero_piso, antiguedad, administracion, habitaciones, bano_privado,barrio):
+def update_prob(n , randomize, pred_precio, departamento, ciudad, estrato, tipo_inmueble, area_valorada, sismoresistentes, numero_piso, antiguedad, administracion, habitaciones, bano_privado,barrio,ocupante,total_cupos_parquedaro,cocina,clase_inmueble,estructura_reforzada,tipo_garaje,detalle_material,closet,balcon,calidad_acabados_madera):
     
     if ctx.triggered_id == 'submit-inmueble':
 
@@ -153,14 +183,23 @@ def update_prob(n , randomize, pred_precio, departamento, ciudad, estrato, tipo_
         inmueble_promedio['vetustez'] = antiguedad
         inmueble_promedio['area_valorada'] = area_valorada
         inmueble_promedio['barrio'] = barrio
-
+        inmueble_promedio['ocupante'] = ocupante
+        inmueble_promedio['total_cupos_parquedaro'] = total_cupos_parquedaro
+        inmueble_promedio['cocina'] = cocina
+        inmueble_promedio['clase_inmueble'] = clase_inmueble
+        inmueble_promedio['estructura_reforzada'] = estructura_reforzada
+        inmueble_promedio['tipo_garaje'] = tipo_garaje
+        inmueble_promedio['detalle_material'] = detalle_material
+        inmueble_promedio['closet'] = closet
+        inmueble_promedio['balcon'] = balcon
+        inmueble_promedio['calidad_acabados_madera'] = calidad_acabados_madera
 
         inmueble_promedio_t = cat_econder.transform(pd.DataFrame.from_dict(inmueble_promedio, orient='index').T)
         inmueble_promedio_selected = fwiz.transform(inmueble_promedio_t)
         pred_precio = model.predict(inmueble_promedio_selected)[0]
         pred_precio = "$ {:.2f}".format(pred_precio)
 
-        return pred_precio, departamento, ciudad, estrato, tipo_inmueble, area_valorada, sismoresistentes, numero_piso, antiguedad, administracion, habitaciones, bano_privado,barrio
+        return pred_precio, departamento, ciudad, estrato, tipo_inmueble, area_valorada, sismoresistentes, numero_piso, antiguedad, administracion, habitaciones, bano_privado,barrio,ocupante,total_cupos_parquedaro,cocina,clase_inmueble,estructura_reforzada,tipo_garaje,detalle_material,closet,balcon,calidad_acabados_madera
     
     elif ctx.triggered_id == 'randomize':
         
@@ -199,9 +238,40 @@ def update_prob(n , randomize, pred_precio, departamento, ciudad, estrato, tipo_
 
         barrio = random.choice(list(set(f_datos['barrio'])))
         f_datos = datos.query(f"barrio == {barrio}")
+        
+        ocupante = random.choice(list(set(f_datos['ocupante'])))
+        f_datos = datos.query(f"ocupante == {ocupante}")
+
+        total_cupos_parquedaro = random.choice(list(set(f_datos['total_cupos_parquedaro'])))
+        f_datos = datos.query(f"total_cupos_parquedaro == {total_cupos_parquedaro}")
+
+        cocina = random.choice(list(set(f_datos['cocina'])))
+        f_datos = datos.query(f"cocina == {cocina}")
+
+        clase_inmueble = random.choice(list(set(f_datos['clase_inmueble'])))
+        f_datos = datos.query(f"clase_inmueble == {clase_inmueble}")
+
+        estructura_reforzada = random.choice(list(set(f_datos['estructura_reforzada'])))
+        f_datos = datos.query(f"estructura_reforzada == {estructura_reforzada}")
+
+        tipo_garaje = random.choice(list(set(f_datos['tipo_garaje'])))
+        f_datos = datos.query(f"tipo_garaje == {tipo_garaje}")
+
+        detalle_material = random.choice(list(set(f_datos['detalle_material'])))
+        f_datos = datos.query(f"detalle_material == {detalle_material}")
+
+        closet = random.choice(list(set(f_datos['closet'])))
+        f_datos = datos.query(f"closet == {closet}")
+
+        balcon = random.choice(list(set(f_datos['balcon'])))
+        f_datos = datos.query(f"balcon == {balcon}")
+
+        calidad_acabados_madera = random.choice(list(set(f_datos['calidad_acabados_madera'])))
+        f_datos = datos.query(f"calidad_acabados_madera == {calidad_acabados_madera}")
 
 
-        return pred_precio, departamento, ciudad, estrato, tipo_inmueble, area_valorada, sismoresistentes, numero_piso, antiguedad, administracion, habitaciones, bano_privado ,barrio
+
+        return pred_precio, departamento, ciudad, estrato, tipo_inmueble, area_valorada, sismoresistentes, numero_piso, antiguedad, administracion, habitaciones, bano_privado ,barrio,ocupante,total_cupos_parquedaro,cocina,clase_inmueble,estructura_reforzada,tipo_garaje,detalle_material,closet,balcon,calidad_acabados_madera
     else:
-        return pred_precio, departamento, ciudad, estrato, tipo_inmueble, area_valorada, sismoresistentes, numero_piso, antiguedad, administracion, habitaciones, bano_privado ,barrio
+        return pred_precio, departamento, ciudad, estrato, tipo_inmueble, area_valorada, sismoresistentes, numero_piso, antiguedad, administracion, habitaciones, bano_privado ,barrio,ocupante,total_cupos_parquedaro,cocina,clase_inmueble,estructura_reforzada,tipo_garaje,detalle_material,closet,balcon,calidad_acabados_madera
 
