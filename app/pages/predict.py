@@ -219,16 +219,16 @@ def update_prob(n , randomize, pred_precio, departamento, ciudad, estrato, tipo_
         f_datos = datos.query(f"ajustes_sismoresistentes == '{sismoresistentes}'")
 
         numero_piso = random.choice(list(set(f_datos['numero_piso'])))
-        f_datos = datos.query(f"numero_piso == {numero_piso}")
+        f_datos = datos.query(f"numero_piso == '{numero_piso}'")
 
         administracion = random.choice(list(set(f_datos['administracion'])))
         f_datos = datos.query(f"administracion == '{administracion}'")
 
         habitaciones = random.choice(list(set(f_datos['habitaciones'])))
-        f_datos = datos.query(f"habitaciones == {habitaciones}")
+        f_datos = datos.query(f"habitaciones == '{habitaciones}'")
 
         bano_privado = random.choice(list(set(f_datos['bano_privado'])))
-        f_datos = datos.query(f"bano_privado == {bano_privado}")
+        f_datos = datos.query(f"bano_privado == '{bano_privado}'")
 
         antiguedad = random.choice(list(set(f_datos['vetustez'])))
         f_datos = datos.query(f"vetustez == {max(min(80,antiguedad),0)}")
@@ -237,37 +237,37 @@ def update_prob(n , randomize, pred_precio, departamento, ciudad, estrato, tipo_
         f_datos = datos.query(f"area_valorada == {max(min(500,area_valorada),0)}")
 
         barrio = random.choice(list(set(f_datos['barrio'])))
-        f_datos = datos.query(f"barrio == {barrio}")
+        f_datos = datos.query(f"barrio == '{barrio}'")
         
         ocupante = random.choice(list(set(f_datos['ocupante'])))
-        f_datos = datos.query(f"ocupante == {ocupante}")
+        f_datos = datos.query(f"ocupante == '{ocupante}'")
 
         total_cupos_parquedaro = random.choice(list(set(f_datos['total_cupos_parquedaro'])))
-        f_datos = datos.query(f"total_cupos_parquedaro == {total_cupos_parquedaro}")
+        f_datos = datos.query(f"total_cupos_parquedaro == '{total_cupos_parquedaro}'")
 
         cocina = random.choice(list(set(f_datos['cocina'])))
-        f_datos = datos.query(f"cocina == {cocina}")
+        f_datos = datos.query(f"cocina == '{cocina}'")
 
         clase_inmueble = random.choice(list(set(f_datos['clase_inmueble'])))
-        f_datos = datos.query(f"clase_inmueble == {clase_inmueble}")
+        f_datos = datos.query(f"clase_inmueble == '{clase_inmueble}'")
 
         estructura_reforzada = random.choice(list(set(f_datos['estructura_reforzada'])))
-        f_datos = datos.query(f"estructura_reforzada == {estructura_reforzada}")
+        f_datos = datos.query(f"estructura_reforzada == '{estructura_reforzada}'")
 
         tipo_garaje = random.choice(list(set(f_datos['tipo_garaje'])))
-        f_datos = datos.query(f"tipo_garaje == {tipo_garaje}")
+        f_datos = datos.query(f"tipo_garaje == '{tipo_garaje}'")
 
         detalle_material = random.choice(list(set(f_datos['detalle_material'])))
-        f_datos = datos.query(f"detalle_material == {detalle_material}")
+        f_datos = datos.query(f"detalle_material == '{detalle_material}'")
 
         closet = random.choice(list(set(f_datos['closet'])))
-        f_datos = datos.query(f"closet == {closet}")
+        f_datos = datos.query(f"closet == '{closet}'")
 
         balcon = random.choice(list(set(f_datos['balcon'])))
-        f_datos = datos.query(f"balcon == {balcon}")
+        f_datos = datos.query(f"balcon == '{balcon}'")
 
         calidad_acabados_madera = random.choice(list(set(f_datos['calidad_acabados_madera'])))
-        f_datos = datos.query(f"calidad_acabados_madera == {calidad_acabados_madera}")
+        f_datos = datos.query(f"calidad_acabados_madera == '{calidad_acabados_madera}'")
 
 
 
