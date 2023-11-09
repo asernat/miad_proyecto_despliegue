@@ -235,3 +235,21 @@ def update_prob(n , randomize, pred_precio, departamento, ciudad, estrato, tipo_
     else:
         return pred_precio, departamento, ciudad, estrato, tipo_inmueble, area_valorada, sismoresistentes, numero_piso, antiguedad, administracion, habitaciones, bano_privado ,barrio,ocupante,total_cupos_parquedaro,cocina,clase_inmueble,estructura_reforzada,tipo_garaje,detalle_material,closet,balcon,calidad_acabados_madera
 
+@app.callback([Output('selectp-ciudad', 'value', allow_duplicate=True),Output('selectp-ciudad', 'data'),Output('selectp-barrio', 'value', allow_duplicate=True),Output('selectp-barrio', 'data')],[Input('selectp-departamento', 'value'), Input('selectp-ciudad', 'value'), Input('selectp-ciudad', 'data'), Input('selectp-barrio', 'value'), Input('selectp-barrio', 'data')])
+def update_output_div(departamento, ciudad, ciudades, barrio, barrios):
+    
+    if ctx.triggered_id == 'selectp-departamento':        
+        f_datos = datos.query(f"departamento_inmueble == '{departamento}'")
+        ciudades = sorted(list(set(f_datos['municipio_inmueble'])))
+        if ciudad not in ciudades: ciudad = ciudades[0]
+
+        f_datos = datos.query(f"departamento_inmueble == '{departamento}' and municipio_inmueble == '{ciudad}'")
+        barrios = sorted(list(set(f_datos['barrio'])))
+        if barrio not in barrios: barrio = barrios[0]
+
+    elif ctx.triggered_id == 'selectp-ciudad':
+        f_datos = datos.query(f"departamento_inmueble == '{departamento}' and municipio_inmueble == '{ciudad}'")
+        barrios = sorted(list(set(f_datos['barrio'])))
+        if barrio not in barrios: barrio = barrios[0]
+
+    return ciudad, ciudades, barrio, barrios
