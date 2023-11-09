@@ -197,7 +197,7 @@ def update_prob(n , randomize, pred_precio, departamento, ciudad, estrato, tipo_
         inmueble_promedio_t = cat_econder.transform(pd.DataFrame.from_dict(inmueble_promedio, orient='index').T)
         inmueble_promedio_selected = fwiz.transform(inmueble_promedio_t)
         pred_precio = model.predict(inmueble_promedio_selected)[0]
-        pred_precio = "$ {:.2f}".format(pred_precio)
+        pred_precio = "$ {:,.2f}".format(pred_precio).replace(".","|").replace(",",".").replace("|",",")
 
         return pred_precio, departamento, ciudad, estrato, tipo_inmueble, area_valorada, sismoresistentes, numero_piso, antiguedad, administracion, habitaciones, bano_privado,barrio,ocupante,total_cupos_parquedaro,cocina,clase_inmueble,estructura_reforzada,tipo_garaje,detalle_material,closet,balcon,calidad_acabados_madera
     
@@ -230,7 +230,7 @@ def update_prob(n , randomize, pred_precio, departamento, ciudad, estrato, tipo_
         balcon = random.choice(list(set(datos['balcon'])))
         calidad_acabados_madera = random.choice(list(set(datos['calidad_acabados_madera'])))
 
-
+        pred_precio = "-"
         return pred_precio, departamento, ciudad, estrato, tipo_inmueble, area_valorada, sismoresistentes, numero_piso, antiguedad, administracion, habitaciones, bano_privado ,barrio,ocupante,total_cupos_parquedaro,cocina,clase_inmueble,estructura_reforzada,tipo_garaje,detalle_material,closet,balcon,calidad_acabados_madera
     else:
         return pred_precio, departamento, ciudad, estrato, tipo_inmueble, area_valorada, sismoresistentes, numero_piso, antiguedad, administracion, habitaciones, bano_privado ,barrio,ocupante,total_cupos_parquedaro,cocina,clase_inmueble,estructura_reforzada,tipo_garaje,detalle_material,closet,balcon,calidad_acabados_madera
