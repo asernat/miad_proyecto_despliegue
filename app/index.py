@@ -129,5 +129,5 @@ def display_content(pathname):
         return pages.predict.layout
 
 if __name__ == '__main__':
-    app.run_server(debug=True, port=args['port'])
+    app.run_server(host="0.0.0.0", debug=True, port=args['port'])
 
