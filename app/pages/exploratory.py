@@ -13,7 +13,7 @@ def create_dropdown(id,label, options_list):
         value = options_list[0]
     )
 
-datos = pickle.load(open("../datos/datos_tablero.pkl","rb"))
+datos = pickle.load(open("datos/datos_tablero.pkl","rb"))
 
 layout = html.Div(
     style= {'margin-top':'70px', 'background-color':'WhiteSmoke', 'width':'100%', 'height':'100%', 'align':'center', 'display':'inline'},
