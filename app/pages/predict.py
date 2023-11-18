@@ -2,7 +2,6 @@ from dash import Input, Output, State, html, dcc, dash_table, MATCH, ALL, ctx
 import dash_mantine_components as dmc
 import plotly.graph_objects as go
 import pickle
-import joblib
 import random
 from app import app
 import pandas as pd
