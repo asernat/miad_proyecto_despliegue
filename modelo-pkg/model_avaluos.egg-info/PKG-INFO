@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: model-avaluos
+Version: 0.0.1
+Summary: Modelo para predicción del precio del avalúo de un inmueble
+Home-page: 
+Author: Daniela Castillo Tellez, Katherine Russi Parra, William Morales, Andrés Santiago Serna
+Author-email: d.castillot2@uniandes.edu.co, k.russi@uniandes.edu.co, w.morales@uniandes.edu.co, a.sernat@uniandes.edu.co
+License: BSD-3
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.9.0
+Description-Content-Type: text/markdown
+Requires-Dist: pycaret==3.1.0
+Requires-Dist: featurewiz==0.3.2
+Requires-Dist: pydantic<2.0.0,>=1.10.0
+Requires-Dist: strictyaml<2.0.0,>=1.7.0
+
+Modelo para predicción del precio del avalúo de un inmueble

@@ -1,0 +1,35 @@
+# Nombre del paquete
+package_name: modelo-avaluos
+
+# Variables
+# Objetivo
+target: valor_total_avaluo
+
+features:
+  - departamento_inmueble
+  - municipio_inmueble
+  - estrato
+  - tipo_inmueble
+  - ajustes_sismoresistentes
+  - numero_piso
+  - administracion
+  - habitaciones
+  - bano_privado
+  - vetustez
+  - area_valorada
+  - barrio
+  - ocupante
+  - total_cupos_parquedaro
+  - cocina
+  - clase_inmueble
+  - estructura_reforzada
+  - tipo_garaje
+  - detalle_material
+  - closet
+  - balcon
+  - calidad_acabados_madera
+
+# pipelines
+pipeline_name: modelo_avaluos
+pipeline_save_file: modelo_avaluos
+pipeline_inmueble_promedio: inmueble_promedio
