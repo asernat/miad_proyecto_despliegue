@@ -4,8 +4,12 @@ import dash_mantine_components as dmc
 from dash_iconify import DashIconify
 from app import app
 import pages
+import argparse
 
-server = app.server
+parser = argparse.ArgumentParser()
+parser.add_argument('--port', dest='port', default=8085, help='puerto del servidor')
+parser.add_argument('--api', dest='api', default='localhost:8080', help='hostname:puerto de la api')
+args = vars(parser.parse_args())
 
 def create_main_nav_link(icon, label, href):
     return dcc.Link(
@@ -125,5 +129,5 @@ def display_content(pathname):
         return pages.predict.layout
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(debug=True, port=args['port'])
 

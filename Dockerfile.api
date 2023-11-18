@@ -18,7 +18,7 @@ RUN chown -R api-user:api-user ./
 
 USER api-user
 # Puerto a exponer para la api 
-EXPOSE 8001
+EXPOSE 8080
 
 # Comandos a ejecutar al correr el contenedor 
 CMD ["bash", "./run.sh"]

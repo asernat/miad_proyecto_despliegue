@@ -3,10 +3,19 @@ import dash_mantine_components as dmc
 import plotly.graph_objects as go
 import pickle
 import joblib
-from pycaret.regression import load_model 
 import random
 from app import app
 import pandas as pd
+import requests
+import argparse
+from loguru import logger
+import json
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--port', dest='port', default=8085, help='puerto del servidor')
+parser.add_argument('--api', dest='api', default='localhost:8080', help='hostname:puerto de la api')
+args = vars(parser.parse_args())
+api_url = f"http://{args['api']}/api/v1/predict"
 
 def create_dropdown(id,label, options_list):
     return dmc.Select(
@@ -17,12 +26,6 @@ def create_dropdown(id,label, options_list):
     )
 
 datos = pickle.load(open("../datos/datos_tablero.pkl","rb"))
-
-fwiz = joblib.load("../modelos/fwiz.joblib")
-cat_econder = joblib.load("../modelos/cat_econder.joblib")
-vars_dict = joblib.load("../modelos/vars_dict.joblib")
-model = load_model(r"../modelos\best_model-pipeline") 
-inmueble_promedio = pickle.load(open("../modelos\inmueble_promedio.pkl","rb"))
 
 layout = html.Div(
     children=[
@@ -102,7 +105,8 @@ layout = html.Div(
                                 html.Div(
                                     style= {'background-color':'WhiteSmoke', 'border-color':'black', 'border':'1px solid black'},
                                     children=[ 
-                                        dmc.Text("-", id='pred_precio', color='black', style={'font-family':'Arial', 'font-size': 30, 'font-weight': 'bold'}, align='center'),
+                                        dcc.Loading(id = "loading-icon", children=[dmc.Text("-", id='pred_precio', color='black', style={'font-family':'Arial', 'font-size': 30, 'font-weight': 'bold'}, align='center')], type="default") 
+
                                     ]
                                 )                       
                             ],
@@ -167,38 +171,50 @@ layout = html.Div(
 
                 prevent_inital_update = True,
                 )
-def update_prob(n , randomize, pred_precio, departamento, ciudad, estrato, tipo_inmueble, area_valorada, sismoresistentes, numero_piso, antiguedad, administracion, habitaciones, bano_privado,barrio,ocupante,total_cupos_parquedaro,cocina,clase_inmueble,estructura_reforzada,tipo_garaje,detalle_material,closet,balcon,calidad_acabados_madera):
+def update_valor(n , randomize, pred_precio, departamento, ciudad, estrato, tipo_inmueble, area_valorada, sismoresistentes, numero_piso, antiguedad, administracion, habitaciones, bano_privado,barrio,ocupante,total_cupos_parquedaro,cocina,clase_inmueble,estructura_reforzada,tipo_garaje,detalle_material,closet,balcon,calidad_acabados_madera):
     
     if ctx.triggered_id == 'submit-inmueble':
 
-        inmueble_promedio['departamento_inmueble'] = departamento
-        inmueble_promedio['municipio_inmueble'] = ciudad
-        inmueble_promedio['estrato'] = estrato
-        inmueble_promedio['tipo_inmueble'] = tipo_inmueble
-        inmueble_promedio['ajustes_sismoresistentes'] = sismoresistentes
-        inmueble_promedio['numero_piso'] = numero_piso
-        inmueble_promedio['administracion'] = administracion
-        inmueble_promedio['habitaciones'] = habitaciones
-        inmueble_promedio['bano_privado'] = bano_privado
-        inmueble_promedio['vetustez'] = antiguedad
-        inmueble_promedio['area_valorada'] = area_valorada
-        inmueble_promedio['barrio'] = barrio
-        inmueble_promedio['ocupante'] = ocupante
-        inmueble_promedio['total_cupos_parquedaro'] = total_cupos_parquedaro
-        inmueble_promedio['cocina'] = cocina
-        inmueble_promedio['clase_inmueble'] = clase_inmueble
-        inmueble_promedio['estructura_reforzada'] = estructura_reforzada
-        inmueble_promedio['tipo_garaje'] = tipo_garaje
-        inmueble_promedio['detalle_material'] = detalle_material
-        inmueble_promedio['closet'] = closet
-        inmueble_promedio['balcon'] = balcon
-        inmueble_promedio['calidad_acabados_madera'] = calidad_acabados_madera
+        myreq = {
+            "inputs": [
+                {
+                "departamento_inmueble": departamento,
+                "municipio_inmueble": ciudad,
+                "estrato": estrato,
+                "tipo_inmueble": tipo_inmueble,
+                "ajustes_sismoresistentes": sismoresistentes,
+                "numero_piso": numero_piso,
+                "administracion": administracion,
+                "habitaciones": habitaciones,
+                "bano_privado": bano_privado,
+                "vetustez": antiguedad,
+                "area_valorada": area_valorada,
+                "barrio": barrio,
+                "ocupante": ocupante,
+                "total_cupos_parquedaro": total_cupos_parquedaro,
+                "cocina": cocina,
+                "clase_inmueble": clase_inmueble,
+                "estructura_reforzada": estructura_reforzada,
+                "tipo_garaje": tipo_garaje,
+                "detalle_material": detalle_material,
+                "closet": closet,
+                "balcon": balcon,
+                "calidad_acabados_madera": calidad_acabados_madera
+                }
+            ]
+        }
 
-        inmueble_promedio_t = cat_econder.transform(pd.DataFrame.from_dict(inmueble_promedio, orient='index').T)
-        inmueble_promedio_selected = fwiz.transform(inmueble_promedio_t)
-        pred_precio = model.predict(inmueble_promedio_selected)[0]
+        headers =  {"Content-Type":"application/json", "accept": "application/json"}
+
+        # POST call to the API
+        response = requests.post(api_url, data=json.dumps(myreq), headers=headers)
+        data = response.json()
+        logger.info("Response: {}".format(data))
+
+        # Pick result to return from json format
+        pred_precio =data["predictions"][0]
+
         pred_precio = "$ {:,.2f}".format(pred_precio).replace(".","|").replace(",",".").replace("|",",")
-
         return pred_precio, departamento, ciudad, estrato, tipo_inmueble, area_valorada, sismoresistentes, numero_piso, antiguedad, administracion, habitaciones, bano_privado,barrio,ocupante,total_cupos_parquedaro,cocina,clase_inmueble,estructura_reforzada,tipo_garaje,detalle_material,closet,balcon,calidad_acabados_madera
     
     elif ctx.triggered_id == 'randomize':

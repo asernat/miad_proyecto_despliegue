@@ -1,7 +1,4 @@
-pycaret==3.1.0 
-featurewiz==0.3.2 
-openpyxl==3.1.2 
-mlflow==2.8.0 
 dash==2.14.1 
 dash-mantine-components==0.12.1 
 dash_iconify==0.1.2
+loguru
