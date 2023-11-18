@@ -25,7 +25,7 @@ def create_dropdown(id,label, options_list):
         value = options_list[0]
     )
 
-datos = pickle.load(open("../datos/datos_tablero.pkl","rb"))
+datos = pickle.load(open("datos/datos_tablero.pkl","rb"))
 
 layout = html.Div(
     children=[

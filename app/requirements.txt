@@ -2,3 +2,4 @@ dash==2.14.1
 dash-mantine-components==0.12.1 
 dash_iconify==0.1.2
 loguru
+pandas
