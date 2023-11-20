@@ -1,0 +1,15 @@
+artifact_uri: file:///e:/Importante/Estudios/Maestria/11%20Despliegue%20de%20soluciones%20anal%C3%ADticas/Proyecto/mlruns/910525732961037228/8f72c5151a6542669640e261da73457b/artifacts
+end_time: 1700451482375
+entry_point_name: ''
+experiment_id: '910525732961037228'
+lifecycle_stage: active
+run_id: 8f72c5151a6542669640e261da73457b
+run_name: optimizacion_gb
+run_uuid: 8f72c5151a6542669640e261da73457b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1700451388341
+status: 3
+tags: []
+user_id: Santi

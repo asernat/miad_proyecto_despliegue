@@ -1,0 +1,16 @@
+artifact_uri: file:///e:/Importante/Estudios/Maestria/11%20Despliegue%20de%20soluciones%20anal%C3%ADticas/Proyecto/mlruns/247635609751712372/28a89aa6c9474d2db92e0874e4c35fc1/artifacts
+deleted_time: 1700484115232
+end_time: 1700458974491
+entry_point_name: ''
+experiment_id: '247635609751712372'
+lifecycle_stage: deleted
+run_id: 28a89aa6c9474d2db92e0874e4c35fc1
+run_name: optimizacion_lgbm
+run_uuid: 28a89aa6c9474d2db92e0874e4c35fc1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1700458970081
+status: 3
+tags: []
+user_id: Santi

@@ -1,0 +1,16 @@
+artifact_uri: file:///e:/Importante/Estudios/Maestria/11%20Despliegue%20de%20soluciones%20anal%C3%ADticas/Proyecto/mlruns/111435063358551650/25d34b87bdc44f939c5a42d0c05c8274/artifacts
+deleted_time: 1699987983078
+end_time: 1699986815983
+entry_point_name: ''
+experiment_id: '111435063358551650'
+lifecycle_stage: deleted
+run_id: 25d34b87bdc44f939c5a42d0c05c8274
+run_name: Extra Trees Regressor
+run_uuid: 25d34b87bdc44f939c5a42d0c05c8274
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1699986815874
+status: 3
+tags: []
+user_id: Santi

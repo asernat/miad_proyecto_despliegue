@@ -1,0 +1,16 @@
+artifact_uri: file:///e:/Importante/Estudios/Maestria/11%20Despliegue%20de%20soluciones%20anal%C3%ADticas/Proyecto/mlruns/111435063358551650/53a0f76778054e258045dce0c464696d/artifacts
+deleted_time: 1699987983018
+end_time: 1699983422291
+entry_point_name: ''
+experiment_id: '111435063358551650'
+lifecycle_stage: deleted
+run_id: 53a0f76778054e258045dce0c464696d
+run_name: Passive Aggressive Regressor
+run_uuid: 53a0f76778054e258045dce0c464696d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1699983422203
+status: 3
+tags: []
+user_id: Santi

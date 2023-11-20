@@ -1,0 +1,16 @@
+artifact_uri: file:///e:/Importante/Estudios/Maestria/11%20Despliegue%20de%20soluciones%20anal%C3%ADticas/Proyecto/mlruns/111435063358551650/374ef527a5b94c7fb45f823d07f7f9ad/artifacts
+deleted_time: 1699987983038
+end_time: 1699983422793
+entry_point_name: ''
+experiment_id: '111435063358551650'
+lifecycle_stage: deleted
+run_id: 374ef527a5b94c7fb45f823d07f7f9ad
+run_name: Least Angle Regression
+run_uuid: 374ef527a5b94c7fb45f823d07f7f9ad
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1699983422689
+status: 3
+tags: []
+user_id: Santi

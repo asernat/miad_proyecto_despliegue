@@ -1,0 +1,61 @@
+digest: 2a06a037
+name: dataset
+profile: '{"num_rows": 8124, "num_elements": 836772}'
+schema: '{"mlflow_colspec": [{"type": "float", "name": "barrio_50"}, {"type": "float",
+  "name": "barrio_90"}, {"type": "float", "name": "area_valorada"}, {"type": "float",
+  "name": "barrio_10"}, {"type": "float", "name": "cocina"}, {"type": "float", "name":
+  "estrato"}, {"type": "float", "name": "municipio_inmueble_50"}, {"type": "float",
+  "name": "total_cupos_parquedaro"}, {"type": "float", "name": "vetustez"}, {"type":
+  "float", "name": "topografia_sector_75"}, {"type": "float", "name": "tipo_inmueble_25"},
+  {"type": "float", "name": "tipo_inmueble_10"}, {"type": "float", "name": "departamento_inmueble_10"},
+  {"type": "float", "name": "municipio_inmueble_10"}, {"type": "float", "name": "tipo_garaje"},
+  {"type": "float", "name": "bano_privado"}, {"type": "float", "name": "municipio_inmueble_90"},
+  {"type": "float", "name": "calidad_acabados_cocina"}, {"type": "float", "name":
+  "clase_inmueble_90"}, {"type": "float", "name": "tipo_deposito_10"}, {"type": "float",
+  "name": "closet"}, {"type": "float", "name": "ajustes_sismoresistentes_50"}, {"type":
+  "float", "name": "vias_pavimentadas_50"}, {"type": "float", "name": "numero_piso"},
+  {"type": "float", "name": "estado_acabados_cocina"}, {"type": "float", "name": "departamento_inmueble_90"},
+  {"type": "float", "name": "sardineles_en_las_vias_10"}, {"type": "float", "name":
+  "calidad_acabados_pisos"}, {"type": "float", "name": "demanda_interes"}, {"type":
+  "float", "name": "alamedas_10"}, {"type": "float", "name": "estructura_reforzada_10"},
+  {"type": "float", "name": "bano_servicio"}, {"type": "float", "name": "calidad_acabados_madera"},
+  {"type": "float", "name": "habitaciones"}, {"type": "float", "name": "balcon"},
+  {"type": "float", "name": "indice_construccion_50"}, {"type": "float", "name": "pisos_bodega"},
+  {"type": "float", "name": "motivo_50"}, {"type": "float", "name": "ciclo_rutas_10"},
+  {"type": "float", "name": "estar_habitacion"}, {"type": "float", "name": "area_libre_75"},
+  {"type": "float", "name": "numero_de_edificios"}, {"type": "float", "name": "ocupante_75"},
+  {"type": "float", "name": "detalle_material_10"}, {"type": "float", "name": "calidad_acabados_techos"},
+  {"type": "float", "name": "estudio"}, {"type": "float", "name": "fachada_90"}, {"type":
+  "float", "name": "tipo_inmueble_90"}, {"type": "float", "name": "terraza"}, {"type":
+  "float", "name": "garaje_visitantes_90"}, {"type": "float", "name": "telefono_en_el_predio_90"},
+  {"type": "float", "name": "altura_permitida_90"}, {"type": "float", "name": "calidad_acabados_muros"},
+  {"type": "float", "name": "indice_ocupacion_75"}, {"type": "float", "name": "estructura_10"},
+  {"type": "float", "name": "detalle_material_90"}, {"type": "float", "name": "nivel_equipamiento_comercial"},
+  {"type": "float", "name": "comedor"}, {"type": "float", "name": "tipo_fachada_90"},
+  {"type": "float", "name": "alamedas_75"}, {"type": "float", "name": "gas_en_el_predio_50"},
+  {"type": "float", "name": "cubierta_90"}, {"type": "float", "name": "cuarto_servicio"},
+  {"type": "float", "name": "clase_inmueble_50"}, {"type": "float", "name": "porteria_50"},
+  {"type": "float", "name": "bicicletero_50"}, {"type": "float", "name": "bano_social"},
+  {"type": "float", "name": "topografia_sector_25"}, {"type": "float", "name": "vigilancia_privada_10"},
+  {"type": "float", "name": "cubierta_10"}, {"type": "float", "name": "citofono_25"},
+  {"type": "float", "name": "calidad_acabados_banos"}, {"type": "float", "name": "jardin"},
+  {"type": "float", "name": "calidad_acabados_metal"}, {"type": "float", "name": "administracion_25"},
+  {"type": "float", "name": "sauna_75"}, {"type": "float", "name": "ajustes_sismoresistentes_90"},
+  {"type": "float", "name": "antejardin_75"}, {"type": "float", "name": "estructura_reforzada_25"},
+  {"type": "float", "name": "patio_interior"}, {"type": "float", "name": "irregularidad_altura_50"},
+  {"type": "float", "name": "material_de_construccion_75"}, {"type": "float", "name":
+  "rph_25"}, {"type": "float", "name": "estructura_75"}, {"type": "float", "name":
+  "tanque_de_agua_10"}, {"type": "float", "name": "ocupante_10"}, {"type": "float",
+  "name": "condicion_ph_90"}, {"type": "float", "name": "club_house_50"}, {"type":
+  "float", "name": "danos_previos_50"}, {"type": "float", "name": "vias_pavimentadas_10"},
+  {"type": "float", "name": "piscina_90"}, {"type": "float", "name": "tipo_vigilancia_10"},
+  {"type": "float", "name": "teatrino_10"}, {"type": "float", "name": "aislamiento_posterior_90"},
+  {"type": "float", "name": "gas_en_el_predio_25"}, {"type": "float", "name": "irregularidad_planta_10"},
+  {"type": "float", "name": "telefono_en_el_predio_10"}, {"type": "float", "name":
+  "aislamiento_lateral_75"}, {"type": "float", "name": "gas_en_el_predio_90"}, {"type":
+  "float", "name": "material_de_construccion_10"}, {"type": "float", "name": "altura_permitida_50"},
+  {"type": "float", "name": "estructura_reforzada_90"}, {"type": "float", "name":
+  "cubierta_50"}]}'
+source: '{"tags": {"mlflow.user": "Santi", "mlflow.source.name": "D:\\ambientes\\despliegue2\\lib\\site-packages\\ipykernel_launcher.py",
+  "mlflow.source.type": "LOCAL"}}'
+source_type: code

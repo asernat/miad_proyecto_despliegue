@@ -1,0 +1,15 @@
+artifact_uri: file:///e:/Importante/Estudios/Maestria/11%20Despliegue%20de%20soluciones%20anal%C3%ADticas/Proyecto/mlruns/910525732961037228/98956d9fe259485489b7f073e2c11846/artifacts
+end_time: 1700451257575
+entry_point_name: ''
+experiment_id: '910525732961037228'
+lifecycle_stage: active
+run_id: 98956d9fe259485489b7f073e2c11846
+run_name: optimizacion_rf
+run_uuid: 98956d9fe259485489b7f073e2c11846
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1700451243793
+status: 3
+tags: []
+user_id: Santi

@@ -1,0 +1,16 @@
+artifact_uri: file:///e:/Importante/Estudios/Maestria/11%20Despliegue%20de%20soluciones%20anal%C3%ADticas/Proyecto/mlruns/111435063358551650/9d3ca24c2366495ebd83b24720b4fe52/artifacts
+deleted_time: 1699987983095
+end_time: 1699983421477
+entry_point_name: ''
+experiment_id: '111435063358551650'
+lifecycle_stage: deleted
+run_id: 9d3ca24c2366495ebd83b24720b4fe52
+run_name: Bayesian Ridge
+run_uuid: 9d3ca24c2366495ebd83b24720b4fe52
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1699983421392
+status: 3
+tags: []
+user_id: Santi

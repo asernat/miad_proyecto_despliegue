@@ -1,0 +1,2 @@
+TransformerWrapper(include=[],
+                   transformer=SimpleImputer(strategy='most_frequent'))

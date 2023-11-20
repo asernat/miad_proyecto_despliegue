@@ -1,0 +1,16 @@
+artifact_uri: file:///e:/Importante/Estudios/Maestria/11%20Despliegue%20de%20soluciones%20anal%C3%ADticas/Proyecto/mlruns/111435063358551650/951bc8e2aca647038d76030977b61a56/artifacts
+deleted_time: 1699987983038
+end_time: 1699983415911
+entry_point_name: ''
+experiment_id: '111435063358551650'
+lifecycle_stage: deleted
+run_id: 951bc8e2aca647038d76030977b61a56
+run_name: Light Gradient Boosting Machine
+run_uuid: 951bc8e2aca647038d76030977b61a56
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1699983414393
+status: 3
+tags: []
+user_id: Santi
