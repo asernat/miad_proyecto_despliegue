@@ -4,6 +4,8 @@ import pickle
 from app import app
 import plotly.graph_objects as go
 import plotly.express as px
+import numpy as np
+import pandas as pd
 
 def create_dropdown(id,label, options_list):
     return dmc.Select(
@@ -139,37 +141,65 @@ def update_dashbord(departamento, ciudad, estrato, tipo_inmueble, area_valorada,
     else:
         df_f = df_f.query(f"area_valorada >= {area_valorada[0]} and area_valorada <= {area_valorada[1]}")
 
-    fig1 = px.histogram(df_f, x="vigilancia_privada", color="vigilancia_privada", width=500, height=400, text_auto=True)
-    fig1.update_layout(title_text="Cantidad de Inmuebles con Vigilancia Privada", title_x=0.5)
-    fig1.update_xaxes(title='Vigilancia Privada')
-    fig1.update_yaxes(title='Cantidad')
+    #Proporción de clases de inmuebles
+    fig1 = px.pie(df_f, names='clase_inmueble', width=500, height=400)
+    fig1.update_layout(title_text="Proporción de Clases de Inmuebles", title_x=0.5)
 
-    fig2 = px.histogram(df_f, x="calidad_acabados_cocina", color="calidad_acabados_cocina", width=500, height=400, text_auto=True)
-    fig2.update_layout(title_text="Calidad acabados cocina", title_x=0.5)
-    fig2.update_xaxes(title='Calidad Acabados Cocina')
+    #Distribución de estratos 
+    fig2 = px.histogram(df_f, x="estrato", color="estrato", width=500, height=400)
+    fig2.update_layout(title_text="Distribución de Estratos", title_x=0.5)
+    fig2.update_xaxes(title='Estratos')
     fig2.update_yaxes(title='Cantidad')
 
-    fig3 = px.histogram(df_f, x="clase_inmueble", color="clase_inmueble", width=500, height=400)
-    fig3.update_layout(title_text="Cantidad de Inmuebles por Clase", title_x=0.5)
-    fig3.update_xaxes(title='Clase Inmueble')
-    fig3.update_yaxes(title='Cantidad')
+
+    # Relación Habitaciones, Baño y Valor del Avaluo
+    fig3 = px.scatter(df_f, x='habitaciones', y='bano_privado', size='clean_valor_total_avaluo', width=500, height=400)
+    fig3.update_xaxes(title='Habitaciones')
+    fig3.update_yaxes(title='Baño Privado')
+    fig3.update_layout(title_text="Relación entre Habitaciones, Baños y Valor Total del Avalúo", title_x=0.5)
 
 
-    fig4 = px.pie(df_f, names='administracion', title='Administración',width=500, height=400)
-    fig4.update_layout(title_text="Proporción Inmubles con Administración", title_x=0.5)
+    # Box Avaluo Estrato
+    fig4 = px.box(df_f, x='estrato', y='clean_valor_total_avaluo', color='estrato', width=500, height=400)
+    fig4.update_xaxes(title='Estrato')
+    fig4.update_yaxes(title='Valor Total Avalúo')
+    fig4.update_layout(title_text="Box Plot de Valor Total de Avalúo por Estrato", title_x=0.5)
+    
 
     ## Valor Avaluo vs Área Valorada
-    fig5 = px.scatter(df_f,  y='clean_valor_total_avaluo', x='area_valorada', color='vigilancia_privada',  width=500, height=400)
+    fig5 = px.scatter(df_f,  y='clean_valor_total_avaluo', x='area_valorada',  width=500, height=400)
     fig5.update_xaxes(title='Estrato')
     fig5.update_yaxes(title='Valor Total Avalúo')
     fig5.update_layout(title='Valor Total Avalúo vs Área Valorada', title_x=0.5)
+    fig5.update_traces(marker=dict(color='blue', size=8, line=dict(color='black', width=2)))
+
+
+    #Radar Calida Acabados y Rangos de Precios 
+    # Definir los rangos de valores
+    rangos_valor = [0, 150000000, 300000000, 450000000, 600000000, np.inf]
+    df_f['rango_valor'] = pd.cut(df_f['clean_valor_total_avaluo'], bins=rangos_valor)
+
+    ## Precio Promedio Por Estrato
+    fig6 = go.Figure(data=[
+        go.Scatterpolar(
+            r=df_f[df_f['rango_valor'] == rango][['calidad_acabados_pisos', 'calidad_acabados_muros',
+                                                      'calidad_acabados_techos', 'calidad_acabados_madera',
+                                                      'calidad_acabados_metal', 'calidad_acabados_banos',
+                                                      'calidad_acabados_cocina']].mean(),
+            theta=['Pisos', 'Muros', 'Techos', 'Madera', 'Metal', 'Baños', 'Cocina'],
+            fill='toself',
+            name=str(rango)
+        ) for rango in df_f['rango_valor'].unique()
+    ],
+    layout=go.Layout(
+        polar=dict(radialaxis=dict(visible=True)),
+        showlegend=True,
+        title='Calidad de Acabados por Rango de Valor de Inmueble',
+        width=500,
+        height=400
+    ))
 
     
-    ## Precio Promedio Por Estrato
-    fig6 = px.histogram(df_f, x="estrato", y='clean_valor_total_avaluo', color="estrato", histfunc='avg', width=500, height=400, text_auto=True)
-    fig6.update_layout(title='Estrato vs Valor Medio Avalúo', title_x=0.5)
-    fig6.update_xaxes(title='Estrato')
-    fig6.update_yaxes(title='Valor Medio Avalúo')
 
     return df_f.shape[0], fig1, fig2, fig3,fig4, fig5, fig6
 
@@ -183,7 +213,7 @@ def update_output_div(input_value):
         f_datos = datos.query(f"departamento_inmueble == '{input_value}'")
         ciudades = ['Ninguno'] + sorted(list(set(f_datos['municipio_inmueble'])))
         return "Ninguno", ciudades
-    
+
 	
 	
 	
