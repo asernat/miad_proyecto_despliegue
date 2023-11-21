@@ -1,5 +1,6 @@
 MANIFEST.in
 setup.py
+./requirements/requirements.txt
 model/VERSION
 model/__init__.py
 model/config.yml
