@@ -168,7 +168,7 @@ def update_dashbord(departamento, ciudad, estrato, tipo_inmueble, area_valorada,
 
     ## Valor Avaluo vs Área Valorada
     fig5 = px.scatter(df_f,  y='clean_valor_total_avaluo', x='area_valorada',  width=500, height=400)
-    fig5.update_xaxes(title='Estrato')
+    fig5.update_xaxes(title='Área valorada')
     fig5.update_yaxes(title='Valor Total Avalúo')
     fig5.update_layout(title='Valor Total Avalúo vs Área Valorada', title_x=0.5)
     fig5.update_traces(marker=dict(color='blue', size=8, line=dict(color='black', width=2)))
