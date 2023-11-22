@@ -18,7 +18,7 @@ RUN chown -R app-user:app-user ./
 
 USER app-user
 # Puerto a exponer para el tablero 
-EXPOSE 8085
+EXPOSE 8080
 
 # Comandos a ejecutar al correr el contenedor 
 CMD ["bash", "./run.sh"]
