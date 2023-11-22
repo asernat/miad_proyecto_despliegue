@@ -9,6 +9,7 @@ pipeline_file_name = f"{config.app_config.pipeline_save_file}-{_version}.joblib"
 inmueble_promedio_file_name = f"{config.app_config.pipeline_inmueble_promedio}-{_version}.pkl"
 _avaluos_pipe, _inmueble_promedio = load_pipeline(file_name=pipeline_file_name, inmueble_promedio_file_name=inmueble_promedio_file_name)
 
+
 def make_prediction(
     *,
     input_data: t.Union[pd.DataFrame, dict],
